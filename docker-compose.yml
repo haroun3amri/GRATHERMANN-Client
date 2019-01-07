@@ -1,0 +1,34 @@
+version: "2.1"
+services:
+  cihm-client:
+    container_name: "cihm-client"
+    build: ./docker/client
+    ports:
+      - 4200:4200
+    volumes:
+      - ./client:/var/opt/client
+      - ./cache/npm:/root/.npm
+  cihm-server:
+    container_name: "cihm-server"
+    depends_on:
+      - "cihm-mysql"
+    build: ./docker/server
+    ports:
+      - 8080:8080
+      - 5005:5005
+      - 5006:5006
+    volumes:
+      - ./server:/var/opt/server
+      - ./cache/gradle:/root/.gradle
+  cihm-mysql:
+    container_name: "cihm-mysql"
+    image: "mysql/mysql-server:5.7"
+    ports:
+      - 33060:3306
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=cihm
+      - MYSQL_USER=cihm
+      - MYSQL_PASSWORD=cihm
