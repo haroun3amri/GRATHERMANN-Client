@@ -1,0 +1,45 @@
+<!--<mat-tab-group>-->
+  <!--<mat-tab label="Selectionner Type du prduit"> <app-category></app-category> </mat-tab>-->
+  <!--<mat-tab label="Faire la course"> Content 2 </mat-tab>-->
+  <!--<mat-tab label="Choisir mode de livraison"> <app-driver></app-driver> </mat-tab>-->
+  <!--<mat-tab label="Comparateur"> Content 4 </mat-tab>-->
+  <!--<mat-tab label="Paiement"> Content 5 </mat-tab>-->
+<!--</mat-tab-group>-->
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+
+  <mat-step>
+    <ng-template matStepLabel>Select Category</ng-template>
+     <app-category></app-category>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Select Product</ng-template>
+    <app-product></app-product>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Select Delivery</ng-template>
+    <app-driver></app-driver>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Select Market</ng-template>
+    <app-choice></app-choice>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Paiement</ng-template>
+    <app-paiement></app-paiement>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Fin</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+
+</mat-horizontal-stepper>

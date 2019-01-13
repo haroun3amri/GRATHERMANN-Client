@@ -1,0 +1,18 @@
+.example-card {
+  width: 200px;
+  margin: 20px;
+  display: table-column;
+
+}
+
+.cards {
+  min-width: 1000px;
+  display: inline-flex;
+}
+
+.card-image {
+  height: 100px;
+  width: 120px;
+  position: center;
+  margin-left: 15px;
+}

@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+
+  <button mat-button routerLink="/">
+    <mat-icon>home</mat-icon>
+    CourseIt</button>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="fill-remaining-space"></span>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button mat-button routerLink="/statistics">A propos</button>
+    <button mat-button routerLink="/statistics">Nos sponsors</button>
+    <button mat-button routerLink="/statistics">Portail marché</button>
+    <button mat-button routerLink="/statistics">Statistique</button>
+    <button mat-button routerLink="/command">passer commander</button>
+    <button mat-button routerLink="/profile">Profile</button>
+  </div>
+  <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+    <mat-icon>menu</mat-icon>
+  </button>
+
+</mat-toolbar>
+<mat-menu x-position="before" #menu="matMenu">
+  <button mat-menu-item routerLink="/login">Déconnexion</button>
+</mat-menu>

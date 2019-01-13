@@ -1,0 +1,16 @@
+.example-card {
+  width: 300px;
+  margin: 20px;
+  display: table-column;
+
+}
+
+.cards {
+  min-width: 1000px;
+  display: inline-flex;
+}
+
+.card-image {
+  height: 250px;
+  width: 280px;
+}
