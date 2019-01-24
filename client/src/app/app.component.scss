@@ -1,7 +1,14 @@
+@mixin mat-icon-size($size: 24px) {
+  font-size: $size;
+  height: $size;
+  width: $size;
+  line-height: $size;
+}
+
 .sidebar {
   margin: 0;
   padding: 0;
-  width: 300px;
+  width: 320px;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -43,4 +50,32 @@ div.content {
     text-align: center;
     float: none;
   }
+}
+
+.active-promotion-icon {
+  color: yellow;
+  @include mat-icon-size(26px);
+  background-size: 100% auto;
+}
+
+.unactive-promotion-icon {
+  color: darkgray;
+  @include mat-icon-size(26px);
+  background-size: 100% auto;
+}
+
+.percent-span {
+  color: darkgrey;
+  font-size: larger;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.header-toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+.tool-bar-container {
+  margin-bottom: 4%;
+  margin-top: 0%;
 }

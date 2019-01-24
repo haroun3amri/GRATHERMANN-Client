@@ -6,23 +6,28 @@
     </div>
     <p>
       <mat-form-field appearance="outline" style="width: 700px">
-        <mat-label>Username</mat-label>
-        <input matInput placeholder="Placeholder" formControlName="controle1">
-        <mat-icon matSuffix>credit_card</mat-icon>
-        <mat-hint>Hint</mat-hint>
+        <mat-label>Nom d'utilisateur</mat-label>
+        <input matInput placeholder="Veuillez saisir votre login" formControlName="controle1">
+        <mat-icon matSuffix>lock</mat-icon>
+        <mat-hint>Login</mat-hint>
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="outline" style="width: 700px">
-        <mat-label>Password</mat-label>
-        <input matInput placeholder="Placeholder" formControlName="controle2">
+        <mat-label>mot de passe</mat-label>
+        <input matInput placeholder="Veuillez saisir votre de mot de passe" formControlName="controle2" type="password">
         <mat-icon matSuffix>lock</mat-icon>
-        <mat-hint>Hint</mat-hint>
+        <mat-hint>mot de passe</mat-hint>
       </mat-form-field>
     </p>
 
+    <button mat-raised-button color="primary" style="width: 160px" class="login-button" (click)="login()">Login</button>
 
-    <button mat-raised-button color="primary" style="width: 160px" class="login-button">Login</button>
+    <br>
+    <br>
+    <mat-card *ngIf="showError" style="width: 600px">
+      <span style="font-family: Roboto ; color: red"><b> Votre nom d'utilisateur ou bien le mot de passe sont incorrectes !</b> </span>
+    </mat-card>
 
   </div>
 </form>

@@ -1,546 +1,106 @@
-<div fxLayout="row" fxLayoutAlign="center center" class="cards">
+<div fxLayout="row" fxLayoutAlign="center center" class="wrapper">
 
-  <div fxFlex="20" class="example-card">
+  <div fxLayout="row" fxLayoutAlign="center space-between" style="display: inline-flex">
+
+
+
+  <div>
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" fxLayoutAlign="center">
+      <mat-button-toggle value="bold" (click)="initialize()"><mat-icon>euro_symbol</mat-icon>Tous</mat-button-toggle>
+      <mat-button-toggle value="bold" (click)="filterAccordingtoEconomique()"><mat-icon>euro_symbol</mat-icon>Economique</mat-button-toggle>
+      <mat-button-toggle value="italic" (click)="filterAccordingtoBiologique()"><mat-icon>date_range</mat-icon>Biologique</mat-button-toggle>
+      <mat-button-toggle value="underline" (click)="filterAccordingtoFavorite()" ><mat-icon>star_rate</mat-icon>Favoris</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+    <div *ngIf="Cart.length !== 0" style="margin-left: 80%">
+      <button mat-icon-button color="primary">
+        <mat-icon class="cart-icone" aria-label="Ouvrir le panier" (click)="openDialog()">shopping_cart
+        </mat-icon>
+      </button>
+    </div>
+
+
+    <div style="margin-left: 20%">
+    <form class="form-field" [formGroup]="form">
+      <div class="example-container">
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="controle1">
+            <mat-icon matSuffix>loop</mat-icon>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+      </div>
+    </form>
+  </div>
+
+
+  </div>
+
+
+
+
+<div fxLayout="row" style="display: inline-flex">
+
+  <div>
+  <div *ngFor="let i of rows " fxLayout="row" class="cards">
+  <div fxFlex="20" class="example-card" *ngFor="let product of products | slice:(i*ElementNumber):(i+1)*ElementNumber"
+       Style="border-style: dot-dash ; display: inline-flex ; height: 100%"
+       [style.width.%] ="80/ElementNumber"
+       >
     <mat-card [class.mat-elevation-z8]="true">
       <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
+        <span class="span-tag-bio" *ngIf="product.tag === 'bio'"><b>{{product.tag}}</b></span>
+        <span class="span-tag-eco" *ngIf="product.tag === 'eco'"><b>{{product.tag}}</b></span>
+        <mat-card-title>{{product.title}}</mat-card-title> :
+
+        <mat-card-subtitle>
+          <span>{{product.category}}</span>
         </mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
+      <img mat-card-image src='{{product.imageLink}}' class="card-image" alt="Photo of a Shiba Inu">
+      <span><small>Quantité: x</small><b>{{product.quantity}}</b></span>
       <mat-card-content>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
+
+        <div style="display: inline-flex ; width: 100%">
+        <button mat-button (click)="product.isFavorite =! product.isFavorite">
+          <mat-icon matTooltip="Ajouter au favoris" style="color: red" *ngIf="product.isFavorite">favorite</mat-icon>
+          <mat-icon matTooltip="Enlever des favoris" style="color: darkgray" *ngIf="!product.isFavorite">favorite</mat-icon>
         </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
+
+        <button mat-button (click)="addToCart(product)">
+          <mat-icon matTooltip="Ajouter au panier" style="color: blue" *ngIf="product.isInCart">local_grocery_store</mat-icon>
+          <mat-icon matTooltip="Enlever du panier" style="color: darkgray" *ngIf="!product.isInCart">local_grocery_store</mat-icon>
         </button>
+
+          <div fxFlex="column" fxflexalign="center center">
+            <div>
+        <button mat-button (click)="product.quantity = product.quantity + 1">
+          <mat-icon matTooltip="Ajouter au panier" class="quantity-icone">arrow_drop_up</mat-icon>
+        </button>
+            </div>
+            <div *ngIf="product.quantity > 1">
+          <button mat-button (click)="product.quantity = product.quantity - 1">
+            <mat-icon matTooltip="Ajouter au panier" class="quantity-icone">arrow_drop_down</mat-icon>
+          </button>
+            </div>
+          </div>
+        </div>
+
       </mat-card-actions>
     </mat-card>
   </div>
 
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
   </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
   </div>
 
 
+  <div [hidden]="!showComparateur">
+    <app-comparator #comparator [Cart]="Cart"></app-comparator>
+  </div>
 </div>
-
-<div fxLayout="row" fxLayoutAlign="center center" class="cards">
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-</div>
-
-<div fxLayout="row" fxLayoutAlign="center center" class="cards">
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-
-</div>
-
-<div fxLayout="row" fxLayoutAlign="center center" class="cards">
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-
-  <div fxFlex="20" class="example-card">
-    <mat-card [class.mat-elevation-z8]="true">
-      <mat-card-header>
-        <mat-card-title>Pains : 65 $</mat-card-title>
-        <mat-card-subtitle>14/01/2018
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://stongs.com/wp-content/uploads/2016/11/bread.png" class="card-image" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-button>
-          <mat-icon>local_grocery_store
-          </mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
 
 </div>
 

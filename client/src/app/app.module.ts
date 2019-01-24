@@ -1,25 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AuthenticationModule } from "./authentication/authentication.module";
 import { SharedModule} from "./shared/shared.module";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {
-  MatButtonModule,
-  MatDrawer,
+  MatButtonModule, MatButtonToggleModule, MatCardModule,
+   MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule, MatTableModule
 } from "@angular/material";
-import {MatDrawerContent} from "@angular/material";
-import {MatDrawerContainer} from "@angular/material";
-import {MatExpansionPanelTitle} from "@angular/material";
-import {MatExpansionPanelHeader} from "@angular/material";
-import {MatAccordion} from "@angular/material";
-import {MatExpansionPanel} from "@angular/material";
-import {MatExpansionPanelDescription} from "@angular/material";
 import {PortalModule} from '@angular/cdk/portal'
 import {MatBadge} from "@angular/material";
 import {RouterModule, Routes} from "@angular/router";
@@ -29,6 +21,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { LoginDialogComponent } from './login/login-dialog/login-dialog.component';
 
 
 const appRoutes: Routes = [
@@ -46,18 +39,11 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    MatDrawer,
-    MatDrawerContent,
-    MatDrawerContainer,
-    MatExpansionPanelTitle,
-    MatExpansionPanelHeader,
-    MatAccordion,
-    MatExpansionPanel,
-    MatExpansionPanelDescription,
     MatBadge,
     StatisticsComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    LoginDialogComponent
 
   ],
 
@@ -69,7 +55,6 @@ const appRoutes: Routes = [
 
     BrowserModule,
     AppRoutingModule,
-    AuthenticationModule,
     SharedModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -82,10 +67,18 @@ const appRoutes: Routes = [
     FormsModule, ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    BrowserAnimationsModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents: [
+    LoginDialogComponent
+  ],
 
 })
 export class AppModule { }

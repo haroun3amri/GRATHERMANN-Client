@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu/menu.component';
-import {MatInputModule, MatMenuModule} from "@angular/material";
+import {
+  MatButtonToggleModule, MatDialogModule, MatDrawer, MatDrawerContainer, MatDrawerContent, MatExpansionModule,
+  MatInputModule,
+  MatMenuModule, MatRadioModule, MatSidenavModule
+} from "@angular/material";
 import {MatIconModule} from "@angular/material";
 import {MatToolbarModule} from "@angular/material";
 import {MatButtonModule} from "@angular/material";
@@ -22,6 +26,10 @@ import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule, Routes} from "@angular/router";
 import {StatisticsComponent} from "../statistics/statistics.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ComparatorComponent } from './menu/tabsContent/product/comparator/comparator.component';
+import { DialogComponent } from './menu/tabsContent/dialog/dialog.component';
+
 
 const appRoutes: Routes = [
   { path: 'statistics',   component: StatisticsComponent },
@@ -38,6 +46,9 @@ const appRoutes: Routes = [
     DriverComponent,
     ChoiceComponent,
     PaiementComponent,
+    ComparatorComponent,
+    DialogComponent,
+
   ],
   imports: [
     RouterModule.forRoot(
@@ -58,10 +69,19 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     BrowserModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatButtonToggleModule,
+    MatExpansionModule,
+    MatSidenavModule,
+    MatDialogModule,
+    MatRadioModule
   ],
   exports: [
     MenuComponent,
-  ]
+  ],
+  entryComponents: [
+   DialogComponent
+  ],
 })
 export class SharedModule { }

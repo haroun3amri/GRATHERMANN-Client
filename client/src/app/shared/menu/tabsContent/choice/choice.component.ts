@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Product} from "../../../../Models/product";
+import {ProductComponent} from "../product/product.component";
+import {ComparatorComponent} from "../product/comparator/comparator.component";
 
 @Component({
   selector: 'app-choice',
@@ -6,12 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./choice.component.scss']
 })
 export class ChoiceComponent implements OnInit {
+  @ViewChild('comparateur') comparateur: ComparatorComponent;
 
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+
+  favoriteSeason: string;
+  seasons: string[] = ['Spar', 'Casino', 'Lidle', 'Util' , 'Carrefour' , 'Monoprix'];
+  @Input()Cart: Array<Product> = [];
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.Cart);
   }
 
 }

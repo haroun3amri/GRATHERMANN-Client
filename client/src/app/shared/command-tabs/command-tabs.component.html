@@ -10,12 +10,12 @@
 
   <mat-step>
     <ng-template matStepLabel>Select Category</ng-template>
-     <app-category></app-category>
+     <app-category (categoryChanged)="categoryChangedHandler($event)"></app-category>
   </mat-step>
 
   <mat-step>
     <ng-template matStepLabel>Select Product</ng-template>
-    <app-product></app-product>
+    <app-product #products (productCartChanged)="productCartChangedHandler($event)" ></app-product>
   </mat-step>
 
   <mat-step>
@@ -25,7 +25,7 @@
 
   <mat-step>
     <ng-template matStepLabel>Select Market</ng-template>
-    <app-choice></app-choice>
+    <app-choice #choices ></app-choice>
   </mat-step>
 
   <mat-step>
@@ -35,10 +35,10 @@
 
   <mat-step>
     <ng-template matStepLabel>Fin</ng-template>
-    You are now done.
+    <b>Votre commande  est enregistré</b>
     <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button matStepperPrevious>Etape précédente</button>
+      <button mat-button (click)="stepper.reset()">Passer une autre commande</button>
     </div>
   </mat-step>
 

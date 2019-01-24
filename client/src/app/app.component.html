@@ -4,163 +4,39 @@
 </div>
 
 <div class="sidebar">
+  <p>
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" fxLayoutAlign="center">
+      <mat-button-toggle value="bold" (click)="filterAccordingtoPrice()"><mat-icon>euro_symbol</mat-icon>Promotion</mat-button-toggle>
+      <mat-button-toggle value="italic" (click)="filterAccordingtoDate()"><mat-icon>date_range</mat-icon>Date</mat-button-toggle>
+      <mat-button-toggle value="underline" (click)="filterAccordingtoFavorite()" ><mat-icon>star_rate</mat-icon>Avis</mat-button-toggle>
+    </mat-button-toggle-group>
+  </p>
 
   <mat-accordion>
 
-    <mat-expansion-panel>
+    <mat-expansion-panel *ngFor="let promotion of promotions ">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          New promotion
+          <div fxLayout="row">
+          <mat-icon [ngClass] ="promotion.isNew ? 'active-promotion-icon' : 'unactive-promotion-icon'" >star_rate</mat-icon>
+            <div fxLayout="column">
+              <div>
+          {{promotion.title}}
+              </div>
+              <div>
+          {{promotion.date}}
+              </div>
+            </div>
+          </div>
         </mat-panel-title>
         <mat-panel-description>
-          100%
+          <div fxLayout="column">
+          {{promotion.magazin}}
+            <span class="percent-span">{{promotion.percent}}%</span>
+          </div>
         </mat-panel-description>
       </mat-expansion-panel-header>
-      Content
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          New promotion
-        </mat-panel-title>
-        <mat-panel-description>
-          100%
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      Content
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          New promotion
-        </mat-panel-title>
-        <mat-panel-description>
-          100%
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      Content
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          New promotion
-        </mat-panel-title>
-        <mat-panel-description>
-          100%
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      Content
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          New promotion
-        </mat-panel-title>
-        <mat-panel-description>
-          100%
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      Content
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          New promotion
-        </mat-panel-title>
-        <mat-panel-description>
-          100%
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      Content
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          New promotion
-        </mat-panel-title>
-        <mat-panel-description>
-          100%
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      Content
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          New promotion
-        </mat-panel-title>
-        <mat-panel-description>
-          100%
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      Content
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          New promotion
-        </mat-panel-title>
-        <mat-panel-description>
-          100%
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      Content
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          New promotion
-        </mat-panel-title>
-        <mat-panel-description>
-          100%
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      Content
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          New promotion
-        </mat-panel-title>
-        <mat-panel-description>
-          100%
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      Content
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          New promotion
-        </mat-panel-title>
-        <mat-panel-description>
-          100%
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      Content
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          New promotion
-        </mat-panel-title>
-        <mat-panel-description>
-          100%
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      Content
+      {{promotion.content}}
     </mat-expansion-panel>
 
   </mat-accordion>
