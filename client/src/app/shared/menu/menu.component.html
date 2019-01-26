@@ -1,10 +1,8 @@
 <mat-toolbar color="primary">
 
-  <button mat-button routerLink="/">
-    <mat-icon>home</mat-icon>
-    CourseIt</button>
+    <a [routerLink]="['/']" class="logo"></a>
 
-  <!-- This fills the remaining space of the current row -->
+    <!-- This fills the remaining space of the current row -->
   <span class="fill-remaining-space"></span>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
     <button mat-button routerLink="/statistics">A propos</button>

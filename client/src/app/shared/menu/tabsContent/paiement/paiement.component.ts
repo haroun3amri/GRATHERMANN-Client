@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 
 @Component({
@@ -7,8 +7,10 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./paiement.component.scss']
 })
 export class PaiementComponent implements OnInit {
+  @Output() public paimentChanged: EventEmitter<any> = new EventEmitter();
 
-   public form: FormGroup;
+
+  public form: FormGroup;
 
   constructor(private fileLoader: FormBuilder) { }
 
@@ -37,6 +39,10 @@ export class PaiementComponent implements OnInit {
 
   public get controle4(): FormControl {
     return this.form.controls.controle4 as FormControl;
+  }
+
+  public onPaiement() {
+    this.paimentChanged.emit()
   }
 
 }

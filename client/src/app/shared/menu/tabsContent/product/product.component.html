@@ -1,39 +1,39 @@
 <div fxLayout="row" fxLayoutAlign="center center" class="wrapper">
 
-  <div fxLayout="row" fxLayoutAlign="center space-between" style="display: inline-flex">
-
-
-
-  <div>
+  <div fxLayout="column" fxLayoutAlign="space-around center" style="display: inline-flex;">
+  <div style="margin-right: 350px ">
     <mat-button-toggle-group name="fontStyle" aria-label="Font Style" fxLayoutAlign="center">
-      <mat-button-toggle value="bold" (click)="initialize()"><mat-icon>euro_symbol</mat-icon>Tous</mat-button-toggle>
+      <mat-button-toggle value="bold" (click)="initialize()"><mat-icon>view_module</mat-icon>Tous les produits</mat-button-toggle>
       <mat-button-toggle value="bold" (click)="filterAccordingtoEconomique()"><mat-icon>euro_symbol</mat-icon>Economique</mat-button-toggle>
       <mat-button-toggle value="italic" (click)="filterAccordingtoBiologique()"><mat-icon>date_range</mat-icon>Biologique</mat-button-toggle>
       <mat-button-toggle value="underline" (click)="filterAccordingtoFavorite()" ><mat-icon>star_rate</mat-icon>Favoris</mat-button-toggle>
     </mat-button-toggle-group>
   </div>
 
-    <div *ngIf="Cart.length !== 0" style="margin-left: 80%">
-      <button mat-icon-button color="primary">
-        <mat-icon class="cart-icone" aria-label="Ouvrir le panier" (click)="openDialog()">shopping_cart
-        </mat-icon>
+    <div style="margin-right: 350px " style="display: inline-flex">
+      <form class="form-field" [formGroup]="form">
+        <mat-form-field appearance="outline">
+          <mat-label>Rechercher</mat-label>
+          <input matInput placeholder="Placeholder" formControlName="controle1">
+          <mat-hint>Rechercher votre produits</mat-hint>
+        </mat-form-field>
+      </form>
+      <button mat-icon-button (click)="searchProduct()">
+        <mat-icon aria-label="Example icon-button with a heart icon">youtube_searched_for</mat-icon>
       </button>
     </div>
 
 
-    <div style="margin-left: 20%">
-    <form class="form-field" [formGroup]="form">
-      <div class="example-container">
-          <mat-form-field appearance="outline">
-            <mat-label>Username</mat-label>
-            <input matInput placeholder="Placeholder" formControlName="controle1">
-            <mat-icon matSuffix>loop</mat-icon>
-            <mat-hint>Hint</mat-hint>
-          </mat-form-field>
-      </div>
-    </form>
-  </div>
+    <div *ngIf="Cart.length !== 0" style="margin-left: 150px " fxLayout="column" fxLayoutAlign="space-around center" >
+      <button mat-flat-button color="primary" style="width: 100%"
+         (click)="openDialog()">Afficher le panier <mat-icon>local_grocery_store</mat-icon>
+      </button>
 
+      <button mat-flat-button color="warn" style="width: 100%"
+              (click)="goToDeliverryMode()">Valider le panier <mat-icon>check_circle
+      </mat-icon>
+      </button>
+    </div>
 
   </div>
 
@@ -97,7 +97,7 @@
   </div>
 
 
-  <div [hidden]="!showComparateur">
+  <div [hidden]="!showComparateur || Cart.length === 0">
     <app-comparator #comparator [Cart]="Cart"></app-comparator>
   </div>
 </div>

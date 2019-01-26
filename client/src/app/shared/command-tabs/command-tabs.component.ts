@@ -19,13 +19,14 @@ export class CommandTabsComponent implements OnInit , AfterViewInit{
 
   Cart: Product[] = [];
   productmock = productsMock;
+  deliveryCost: number = 0;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  productCartChangedHandler() {
+  public productCartChangedHandler() {
     console.log(this.products.Cart);
     this.choices.Cart = this.products.Cart;
   }
@@ -34,11 +35,33 @@ export class CommandTabsComponent implements OnInit , AfterViewInit{
     this.choices.Cart = this.products.Cart;
   }
 
-  categoryChangedHandler(caterory: string) {
+  public categoryChangedHandler(caterory: string) {
     this.stepper.selectedIndex = 1;
     console.log(caterory);
     this.products.products = this.productmock;
     this.products.products = this.productmock.filter(e => e.category === caterory);
   }
+
+  public cartFilledHandler(cart: Product[]) {
+    this.stepper.selectedIndex = 2;
+    this.Cart = cart;
+  }
+
+  public deleiveryChoiceCheckedHandler(deliveryCost: number)
+  {
+    this.stepper.selectedIndex = 3;
+    this.deliveryCost = deliveryCost;
+    this.choices.comparator2.Cart = this.Cart;
+    this.choices.comparator2.compare();
+
+  }
+
+  choiceChangedHandler() {
+    this.stepper.selectedIndex = 4;
+  }
+  paimentChangedHandler() {
+    this.stepper.selectedIndex = 5;
+  }
+
 
 }

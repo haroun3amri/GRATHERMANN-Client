@@ -1,7 +1,8 @@
 <!-- The chart type goes in here -->
+<div style="margin-left: 50px">
 <div FxLayout="row" class="statistic-section">
   <div>
-<div> This is a visual representation of a line chart</div>
+<div> <b>Variation de nombre des clients par marché chaque année</b></div>
 <div style="display: inline-block">
   <ngx-charts-line-chart
     [view]="view"
@@ -23,7 +24,7 @@
   </div>
 
 <div>
-<div> This is a visual representation of a area chart</div>
+<div> <b>Variation de nombre des clients par marché chaque année</b></div>
 
 <div style="display: inline-block">
   <ngx-charts-area-chart
@@ -46,7 +47,9 @@
 
 </div>
 <br>
-<div> This is a visual representation of a pie chart</div>
+<div>
+  <b> Total des commandes par marché </b>
+</div>
 
 <div style="display: inline-block">
   <ngx-charts-pie-chart
@@ -60,4 +63,5 @@
     [gradient]="gradient"
     (select)="onSelect($event)">
   </ngx-charts-pie-chart>
+</div>
 </div>

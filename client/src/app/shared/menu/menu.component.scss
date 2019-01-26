@@ -2,4 +2,12 @@
   flex: 1 1 auto;
 }
 
+.logo {
+  background-image: url('../../../assets/logo.png');
+  width: 85px;
+  height: 85px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 

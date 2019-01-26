@@ -30,7 +30,7 @@ export class ComparatorComponent implements OnInit{
         this.result.spart = this.result.spart + (product.priceList[0].spart * product.quantity);
         this.result.util = this.result.util + (product.priceList[0].util * product.quantity);
       }
-      this.comparaisonResult.push(new CompraisonResult('carrefout' ,  this.result.carrefour , 'https://cdn.freebiesupply.com/logos/large/2x/carrefour-3-logo-png-transparent.png '));
+      this.comparaisonResult.push(new CompraisonResult('Carrefour' ,  this.result.carrefour , 'https://cdn.freebiesupply.com/logos/large/2x/carrefour-3-logo-png-transparent.png '));
       this.comparaisonResult.push(new CompraisonResult('Casino', this.result.casino , 'http://www.vector-logo.net/logo_preview/ai/c/CASINO_SUPERMARKET_LOGO.png'));
       this.comparaisonResult.push(new CompraisonResult('Lidle' , this.result.lidle, 'http://caritasgliwice.pl/wp-content/uploads/2017/05/lidl-logo-AFAFEAFE19-seeklogo.com_.png'));
       this.comparaisonResult.push(new CompraisonResult('Monoprix' , this.result.monoprix, 'https://www.determine.com/wp-content/uploads/2017/12/monoprix-logo.png'));
@@ -41,7 +41,7 @@ export class ComparatorComponent implements OnInit{
 
   getValue(product: Product , shopName : string) {
 
-      if(shopName === 'carrefout') {
+      if(shopName === 'Carrefour') {
           return product.priceList[0].carrefour
       }
       if(shopName === 'Casino') {

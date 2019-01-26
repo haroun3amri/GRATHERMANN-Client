@@ -9,33 +9,37 @@
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
 
   <mat-step>
-    <ng-template matStepLabel>Select Category</ng-template>
+    <ng-template matStepLabel>Catégorie</ng-template>
      <app-category (categoryChanged)="categoryChangedHandler($event)"></app-category>
   </mat-step>
 
   <mat-step>
-    <ng-template matStepLabel>Select Product</ng-template>
-    <app-product #products (productCartChanged)="productCartChangedHandler($event)" ></app-product>
+    <ng-template matStepLabel>Produits</ng-template>
+    <app-product #products (productCartChanged)="productCartChangedHandler($event)"
+                 (cartFilled)="cartFilledHandler($event)"></app-product>
   </mat-step>
 
   <mat-step>
-    <ng-template matStepLabel>Select Delivery</ng-template>
-    <app-driver></app-driver>
+    <ng-template matStepLabel >Livraison</ng-template>
+    <app-driver (deleiveryChoiceChecked)="deleiveryChoiceCheckedHandler($event)"></app-driver>
   </mat-step>
 
   <mat-step>
-    <ng-template matStepLabel>Select Market</ng-template>
-    <app-choice #choices ></app-choice>
+    <ng-template matStepLabel>Marché</ng-template>
+    <app-choice #choices [deliveryCost]="deliveryCost" [Cart]="Cart" (choiceChanged)="choiceChangedHandler($$event)"></app-choice>
   </mat-step>
 
   <mat-step>
     <ng-template matStepLabel>Paiement</ng-template>
-    <app-paiement></app-paiement>
+    <app-paiement (paimentChanged)="paimentChangedHandler($event)"></app-paiement>
   </mat-step>
 
   <mat-step>
     <ng-template matStepLabel>Fin</ng-template>
-    <b>Votre commande  est enregistré</b>
+    <div  style="margin-left: 500px" style="display: table">
+      <b style="color: forestgreen">Votre commande  est enregistré</b>
+      <img src="../../../assets/logo.png" width="400" height="400"/>
+    </div>
     <div>
       <button mat-button matStepperPrevious>Etape précédente</button>
       <button mat-button (click)="stepper.reset()">Passer une autre commande</button>

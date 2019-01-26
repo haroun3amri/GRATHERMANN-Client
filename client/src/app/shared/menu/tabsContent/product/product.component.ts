@@ -36,6 +36,8 @@ export class ProductComponent implements OnInit {
   matVersion: string = '5.1.0';
   breakpoint: number;
   @Output() public productCartChanged: EventEmitter<Product[]> = new EventEmitter();
+  @Output() public cartFilled: EventEmitter<Product[]> = new EventEmitter();
+
   public form: FormGroup;
   showComparateur: boolean = false;
   showFiller = false;
@@ -76,7 +78,7 @@ export class ProductComponent implements OnInit {
 
   addToCart(product: Product) {
     product.isInCart =! product.isInCart;
-    this.ElementNumber = 3;
+
     this.showComparateur = true;
     if(product.isInCart) {
       this.Cart.push(product);
@@ -87,6 +89,11 @@ export class ProductComponent implements OnInit {
     this.comparator.Cart = this.Cart;
     this.comparator.compare();
     this.productCartChanged.emit(this.Cart);
+    if(this.Cart.length === 0) {
+      this.ElementNumber = 5;
+    }else {
+      this.ElementNumber = 4 ;
+    }
   }
 
   public get controle1(): FormControl {
@@ -103,6 +110,17 @@ export class ProductComponent implements OnInit {
       this.comparator.compare();
       this.productCartChanged.emit(this.Cart);
     });
+  }
+
+  public searchProduct() {
+    let value = this.controle1.value;
+    console.log(value);
+    this.products =  this.products.filter(e => e.title === value);
+    console.log(this.products);
+  }
+
+  public goToDeliverryMode() {
+    this.cartFilled.emit(this.Cart);
   }
 
 }
