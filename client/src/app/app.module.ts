@@ -22,13 +22,19 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { LoginDialogComponent } from './login/login-dialog/login-dialog.component';
+import { PortalComponent } from './portal/portal.component';
+import { ProposComponent } from './propos/propos.component';
 
 
 const appRoutes: Routes = [
   { path: '',   component: CommandTabsComponent },
   { path: 'statistics',   component: StatisticsComponent },
   { path: 'profile',   component: ProfileComponent },
-  { path: 'login',   component: LoginComponent }
+  { path: 'login',   component: LoginComponent },
+  { path: 'propos',   component: ProposComponent },
+  { path: 'portal',   component: PortalComponent }
+
+
 
 
 
@@ -43,7 +49,9 @@ const appRoutes: Routes = [
     StatisticsComponent,
     ProfileComponent,
     LoginComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    PortalComponent,
+    ProposComponent
 
   ],
 

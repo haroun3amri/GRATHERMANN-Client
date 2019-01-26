@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {usersMock} from "../fake-api/users-mock";
+import {User} from "../Models/user";
 
 export interface PeriodicElement {
   name: string;
@@ -29,10 +31,14 @@ export class ProfileComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
+  users = usersMock;
+  actuelUser : User;
+
 
   constructor() { }
 
   ngOnInit() {
+    this.actuelUser = this.users[0];
   }
 
 }

@@ -10,3 +10,12 @@
 .example-selected-value {
   margin: 15px 0;
 }
+
+.wrapper {
+  margin-left: 70px;
+  margin-top: 50px;
+}
+
+::ng-deep .mat-horizontal-stepper-header{
+  pointer-events: none !important;
+}

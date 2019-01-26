@@ -12,6 +12,7 @@ import {MatRadioChange} from "@angular/material";
 export class ChoiceComponent implements OnInit {
   @ViewChild('comparator2') comparator2: ComparatorComponent;
   @Output() public choiceChanged: EventEmitter<any> = new EventEmitter();
+  marketSlected: boolean = true;
 
 
 
@@ -29,6 +30,7 @@ export class ChoiceComponent implements OnInit {
   }
 
   refreshSelected(event: MatRadioChange) {
+    this.marketSlected = false;
     if(event.value === "Util")
     this.CartTotal = this.comparator2.result.util;
     if(event.value === "Spar")
@@ -45,5 +47,4 @@ export class ChoiceComponent implements OnInit {
   goToPayment() {
     this.choiceChanged.emit();
   }
-
 }

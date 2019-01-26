@@ -2,9 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu/menu.component';
 import {
-  MatButtonToggleModule, MatDialogModule, MatDrawer, MatDrawerContainer, MatDrawerContent, MatExpansionModule,
+  MatButtonToggleModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDrawer,
+  MatDrawerContainer,
+  MatDrawerContent,
+  MatExpansionModule,
   MatInputModule,
-  MatMenuModule, MatRadioModule, MatSidenavModule
+  MatMenuModule,
+  MatRadioModule,
+  MatSidenavModule
 } from "@angular/material";
 import {MatIconModule} from "@angular/material";
 import {MatToolbarModule} from "@angular/material";
@@ -75,7 +83,8 @@ const appRoutes: Routes = [
     MatExpansionModule,
     MatSidenavModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDatepickerModule
   ],
   exports: [
     MenuComponent,
