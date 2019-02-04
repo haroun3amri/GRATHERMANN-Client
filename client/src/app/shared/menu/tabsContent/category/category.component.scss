@@ -11,6 +11,16 @@
 }
 
 .card-image {
-  height: 250px;
-  width: 280px;
+  height: 150px;
+  width: 180px;
+  display: block;
+  margin: auto;
+}
+
+.custom-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 50%;
+  width: 90%;
 }

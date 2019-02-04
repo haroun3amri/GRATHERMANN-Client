@@ -37,6 +37,10 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       {{promotion.content}}
+      <button mat-icon-button>
+        <mat-icon aria-label="Example icon-button with a heart icon" (click)="openDialog(promotion)">open_in_browser</mat-icon>
+      </button>
+
     </mat-expansion-panel>
 
   </mat-accordion>

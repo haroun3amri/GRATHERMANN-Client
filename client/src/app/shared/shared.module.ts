@@ -12,7 +12,7 @@ import {
   MatInputModule,
   MatMenuModule,
   MatRadioModule,
-  MatSidenavModule
+  MatSidenavModule, MatSnackBarModule
 } from "@angular/material";
 import {MatIconModule} from "@angular/material";
 import {MatToolbarModule} from "@angular/material";
@@ -84,7 +84,8 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatDialogModule,
     MatRadioModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSnackBarModule
   ],
   exports: [
     MenuComponent,

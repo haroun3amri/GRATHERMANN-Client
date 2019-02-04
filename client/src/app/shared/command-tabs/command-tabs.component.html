@@ -7,27 +7,27 @@
 
   <mat-step>
     <ng-template matStepLabel>Produits</ng-template>
-    <button mat-stroked-button color="primary" matStepperPrevious><mat-icon>arrow_back</mat-icon> Etape précédente</button>
+    <button style="margin-bottom: 5px" mat-stroked-button color="primary" matStepperPrevious><mat-icon>arrow_back</mat-icon> Etape précédente</button>
     <app-product #products (productCartChanged)="productCartChangedHandler($event)"
                  (cartFilled)="cartFilledHandler($event)"></app-product>
   </mat-step>
 
   <mat-step >
     <ng-template matStepLabel>Livraison</ng-template>
-    <button mat-stroked-button color="primary" matStepperPrevious><mat-icon>arrow_back</mat-icon> Etape précédente</button>
+    <button style="margin-bottom: 5px" mat-stroked-button color="primary" matStepperPrevious><mat-icon>arrow_back</mat-icon> Etape précédente</button>
     <app-driver (deleiveryChoiceChecked)="deleiveryChoiceCheckedHandler($event)"></app-driver>
   </mat-step>
 
   <mat-step>
     <ng-template matStepLabel>Marché</ng-template>
-    <button mat-stroked-button color="primary" matStepperPrevious><mat-icon>arrow_back</mat-icon> Etape précédente</button>
+    <button style="margin-bottom: 5px" mat-stroked-button color="primary" matStepperPrevious><mat-icon>arrow_back</mat-icon> Etape précédente</button>
     <app-choice #choices [deliveryCost]="deliveryCost" [Cart]="Cart"
                 (choiceChanged)="choiceChangedHandler($$event)"></app-choice>
   </mat-step>
 
   <mat-step>
     <ng-template matStepLabel>Paiement</ng-template>
-    <button mat-stroked-button color="primary" matStepperPrevious><mat-icon>arrow_back</mat-icon> Etape précédente</button>
+    <button style="margin-bottom: 5px" mat-stroked-button color="primary" matStepperPrevious><mat-icon>arrow_back</mat-icon> Etape précédente</button>
     <app-paiement (paimentChanged)="paimentChangedHandler($event)"></app-paiement>
 
   </mat-step>
@@ -35,7 +35,6 @@
   <mat-step>
 
     <ng-template matStepLabel>Fin</ng-template>
-    <button mat-stroked-button color="primary" matStepperPrevious><mat-icon>arrow_back</mat-icon> Etape précédente</button>
     <div class="wrapper">
       <div fxLayout="row" fxLayoutAlign="center center"><span
         style="color: black ; font-family: Roboto, 'Helvetica Neue', sans-serif; font-size: 1em"><b>

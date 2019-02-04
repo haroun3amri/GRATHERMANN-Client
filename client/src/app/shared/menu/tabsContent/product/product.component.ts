@@ -13,7 +13,7 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {Product} from "../../../../Models/product";
 import {ComparatorComponent} from "./comparator/comparator.component";
 import {DialogComponent} from "../dialog/dialog.component";
-import {MatDialog} from "@angular/material";
+import {MatDialog, MatSnackBar} from "@angular/material";
 
 @Component({
   selector: 'app-product',
@@ -43,7 +43,7 @@ export class ProductComponent implements OnInit {
   showFiller = false;
 
 
-  constructor(private fileLoader: FormBuilder ,public dialog: MatDialog) { }
+  constructor(private fileLoader: FormBuilder ,public dialog: MatDialog, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
 
@@ -81,9 +81,11 @@ export class ProductComponent implements OnInit {
 
     this.showComparateur = true;
     if(product.isInCart) {
+      this.openSnackBar('Ajout au panier',product.title+' x'+product.quantity);
       this.Cart.push(product);
     }
     else {
+      this.openSnackBar('Suppression du panier',product.title);
       this.Cart.splice(this.Cart.indexOf(product),1);
     }
     this.comparator.Cart = this.Cart;
@@ -121,6 +123,21 @@ export class ProductComponent implements OnInit {
 
   public goToDeliverryMode() {
     this.cartFilled.emit(this.Cart);
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 5000,
+    });
+  }
+  addToFavorite(product: Product) {
+    if(product.isFavorite) {
+      this.openSnackBar('Suppression au favoris', product.title);
+    }else{
+      this.openSnackBar('Ajout au favoris',product.title);
+    }
+    product.isFavorite =! product.isFavorite
+
   }
 
 }

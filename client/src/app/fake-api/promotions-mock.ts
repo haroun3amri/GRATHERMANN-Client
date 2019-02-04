@@ -6,7 +6,8 @@ export const promotionsMock = [
     magazin: 'Lidle',
     isNew: true,
     date:'05/01/2019',
-    percent: 50
+    percent: 50,
+    link:'https://medias-prod2-carrefour.e-catalogues.pro/images/452x640/21836/cover.jpg'
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ export const promotionsMock = [
     magazin: 'Carrefous',
     isNew: false,
     date:'12/12/2018',
-    percent: 25
+    percent: 25,
+    link: 'https://medias-prod2-carrefour.e-catalogues.pro/images/452x640/1958/cover.jpg'
   },
   {
     id: 3,
@@ -24,7 +26,8 @@ export const promotionsMock = [
     magazin: 'Casino',
     isNew: true,
     date:'02/01/2019',
-    percent: 60
+    percent: 60,
+    link: 'https://medias-prod2-carrefour.e-catalogues.pro/images/452x640/1979/cover.jpg'
   },
   {
     id: 4,
@@ -33,7 +36,8 @@ export const promotionsMock = [
     magazin: 'Util',
     isNew: true,
     date:'02/01/2019',
-    percent: 70
+    percent: 70,
+    link:'https://medias-prod2-carrefour.e-catalogues.pro/images/452x640/1953/cover.jpg'
   },
   {
     id: 5,
@@ -42,7 +46,8 @@ export const promotionsMock = [
     magazin: 'Casino',
     isNew: false,
     date:'02/01/2019',
-    percent: 80
+    percent: 80,
+    link:'https://medias-prod2-carrefour.e-catalogues.pro/images/452x640/1953/cover.jpg'
   },
   {
     id: 6,
@@ -51,7 +56,8 @@ export const promotionsMock = [
     magazin: 'Spart',
     isNew: false,
     date:'02/01/2018',
-    percent: 30
+    percent: 30,
+    link:'https://medias-prod2-carrefour.e-catalogues.pro/images/452x640/1953/cover.jpg'
   },
   {
     id: 7,
@@ -60,7 +66,9 @@ export const promotionsMock = [
     magazin: 'Util',
     isNew: true,
     date:'02/12/2018',
-    percent: 20
+    percent: 20,
+    link:'https://medias-prod2-carrefour.e-catalogues.pro/images/452x640/1953/cover.jpg'
+
   },
   {
     id: 8,
@@ -69,7 +77,8 @@ export const promotionsMock = [
     magazin: 'Util',
     isNew: true,
     date:'02/01/2019',
-    percent: 70
+    percent: 70,
+    link: 'https://medias-prod2-carrefour.e-catalogues.pro/images/452x640/1958/cover.jpg'
   },
   {
     id: 9,
@@ -78,7 +87,8 @@ export const promotionsMock = [
     magazin: 'Casino',
     isNew: false,
     date:'02/03/2019',
-    percent: 50
+    percent: 50,
+    link: 'https://medias-prod2-carrefour.e-catalogues.pro/images/452x640/1958/cover.jpg'
   },
   {
     id: 10,
@@ -87,7 +97,8 @@ export const promotionsMock = [
     magazin: 'Monoprix',
     isNew: true,
     date:'15/04/2019',
-    percent: 80
+    percent: 80,
+    link: 'https://medias-prod2-carrefour.e-catalogues.pro/images/452x640/1958/cover.jpg'
   },
   {
     id: 11,
@@ -96,7 +107,8 @@ export const promotionsMock = [
     magazin: 'Casino',
     isNew: false,
     date:'18/05/2019',
-    percent: 60
+    percent: 60,
+    link: 'https://static0.tiendeo.fr/images/tiendas/53913/catalogos/431548/paginas/mid2/00001.jpg'
   },
   {
     id: 12,
@@ -105,7 +117,8 @@ export const promotionsMock = [
     magazin: 'Casino',
     isNew: false,
     date:'17/05/2019',
-    percent: 50
+    percent: 50,
+    link: 'https://static0.tiendeo.fr/images/tiendas/53913/catalogos/431548/paginas/mid2/00001.jpg'
   },
   {
     id: 13,
@@ -114,7 +127,8 @@ export const promotionsMock = [
     magazin: 'Spart',
     isNew: true,
     date:'20/11/2019',
-    percent: 80
+    percent: 80,
+    link: 'https://static0.tiendeo.fr/images/tiendas/53913/catalogos/431548/paginas/mid2/00001.jpg'
   },
   {
     id: 14,
@@ -123,7 +137,8 @@ export const promotionsMock = [
     magazin: 'Carrefour',
     isNew: true,
     date:'20/11/2019',
-    percent: 90
+    percent: 90,
+    link: 'https://static0.tiendeo.fr/images/tiendas/53913/catalogos/431548/paginas/mid2/00001.jpg'
   },
   {
     id: 14,
@@ -132,6 +147,7 @@ export const promotionsMock = [
     magazin: 'Carrefour',
     isNew: false,
     date: '20/11/2019',
-    percent: 70
+    percent: 70,
+    link: 'https://static0.tiendeo.fr/images/tiendas/53913/catalogos/431548/paginas/mid2/00001.jpg'
   }
 ];

@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angula
 import {Product} from "../../../../Models/product";
 import {ProductComponent} from "../product/product.component";
 import {ComparatorComponent} from "../product/comparator/comparator.component";
-import {MatRadioChange} from "@angular/material";
+import {MatRadioChange, MatSnackBar} from "@angular/material";
 
 @Component({
   selector: 'app-choice',
@@ -15,15 +15,15 @@ export class ChoiceComponent implements OnInit {
   marketSlected: boolean = true;
 
 
-
   favoriteSeason: string;
-  seasons: string[] = ['Spar', 'Casino', 'Lidle', 'Util' , 'Carrefour' , 'Monoprix'];
-  @Input()Cart: Array<Product> = [];
+  seasons: string[] = ['Spar', 'Casino', 'Lidle', 'Util', 'Carrefour', 'Monoprix'];
+  @Input() Cart: Array<Product> = [];
   @Input() deliveryCost: number = 0;
   CartTotal: number = 0;
   CartTotalWithDelivery: number = 0;
 
-  constructor() { }
+  constructor(private snackBar: MatSnackBar) {
+  }
 
   ngOnInit() {
     console.log(this.Cart);
@@ -31,20 +31,44 @@ export class ChoiceComponent implements OnInit {
 
   refreshSelected(event: MatRadioChange) {
     this.marketSlected = false;
-    if(event.value === "Util")
-    this.CartTotal = this.comparator2.result.util;
-    if(event.value === "Spar")
+    if (event.value === "Util") {
+      this.openSnackBar('Choix du magasin', 'Util');
+      this.CartTotal = this.comparator2.result.util;
+    }
+
+    if (event.value === "Spar") {
+      this.openSnackBar('Choix du magasin', 'Spar');
       this.CartTotal = this.comparator2.result.spart;
-    this.CartTotal = this.comparator2.result.monoprix;
-    if(event.value === "Lidle")
+    }
+    if (event.value === "Monoprix") {
+      this.openSnackBar('Choix du magasin', 'Monoprix');
+
+      this.CartTotal = this.comparator2.result.monoprix;
+    }
+    if (event.value === "Lidle") {
+      this.openSnackBar('Choix du magasin', 'Lidle');
+
       this.CartTotal = this.comparator2.result.lidle;
-    if(event.value === "Casino")
+    }
+    if (event.value === "Casino") {
+      this.openSnackBar('Choix du magasin', 'Casino');
+
       this.CartTotal = this.comparator2.result.casino;
-    if(event.value === "Carrefour")
+    }
+    if (event.value === "Carrefour") {
+      this.openSnackBar('Choix du magasin', 'Carrefour');
+
       this.CartTotal = this.comparator2.result.carrefour;
+    }
   }
 
   goToPayment() {
     this.choiceChanged.emit();
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 5000,
+    });
   }
 }

@@ -6,13 +6,13 @@
         <mat-label>Numéro de la carte</mat-label>
         <input matInput placeholder="Placeholder" formControlName="controle1" required>
         <mat-icon matSuffix>credit_card</mat-icon>
-        <mat-hint>Le numéro de 24 chiffre de votre carte bancaire</mat-hint>
+        <mat-hint>Le numéro de 9 chiffre de votre carte bancaire</mat-hint>
       </mat-form-field>
       <mat-error *ngIf="controle1.touched && controle1.hasError('required')">
         Numéro de la carte requis
       </mat-error>
       <mat-error *ngIf="controle1.touched && controle1.hasError('minlength')">
-        Numéro de la carte doit avoir 12 chiffres
+        Numéro de la carte doit avoir 9 chiffres
       </mat-error>
 
       <mat-error *ngIf="controle1.touched && controle1.hasError('pattern')">

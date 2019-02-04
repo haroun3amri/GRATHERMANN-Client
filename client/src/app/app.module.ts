@@ -24,6 +24,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { LoginDialogComponent } from './login/login-dialog/login-dialog.component';
 import { PortalComponent } from './portal/portal.component';
 import { ProposComponent } from './propos/propos.component';
+import { PromoDialogComponent } from './promo-dialog/promo-dialog.component';
 
 
 const appRoutes: Routes = [
@@ -51,7 +52,8 @@ const appRoutes: Routes = [
     LoginComponent,
     LoginDialogComponent,
     PortalComponent,
-    ProposComponent
+    ProposComponent,
+    PromoDialogComponent
 
   ],
 
@@ -85,7 +87,8 @@ const appRoutes: Routes = [
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    LoginDialogComponent
+    LoginDialogComponent,
+    PromoDialogComponent
   ],
 
 })
