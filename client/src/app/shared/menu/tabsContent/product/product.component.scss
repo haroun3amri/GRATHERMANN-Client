@@ -25,11 +25,11 @@
 }
 
 .span-tag-bio {
-  color: red;
+  color: white;
 }
 
 .span-tag-eco {
-  color: green;
+  color: white;
 }
 
 
@@ -43,6 +43,15 @@ quantity-icone {
   color: dodgerblue;
   @include mat-icon-size(14px);
   background-size: 70% auto;
+}
+
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 30px;
+  font-size: 16px;
+  line-height: 30px;
+  border-radius: 25px;
 }
 
 

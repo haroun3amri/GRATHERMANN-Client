@@ -6,7 +6,8 @@ export const productsMock = [
     title: 'Pain',
     category: 'pains',
     tag: 'bio',
-    isFavorite: false, isInCart: false,
+    isFavorite: false,
+    isInCart: false,
     imageLink:'https://stongs.com/wp-content/uploads/2016/11/bread.png',
     quantity: 1,
     priceList: [{
@@ -23,7 +24,8 @@ export const productsMock = [
     title: 'Pomme',
     category: 'fruits',
     tag: 'bio',
-    isFavorite: false, isInCart: false,
+    isFavorite: true,
+    isInCart: false,
     imageLink:'http://zezete2.z.e.pic.centerblog.net/o/4fa032aa.png',
     quantity: 1,
     priceList: [{
@@ -40,7 +42,8 @@ export const productsMock = [
     title: 'Bannane',
     category: 'fruits',
     tag: 'bio',
-    isFavorite: false, isInCart: false,
+    isFavorite: true,
+    isInCart: false,
     imageLink:'http://pngimg.com/uploads/banana/banana_PNG825.png',
     quantity: 1,
     priceList: [{
@@ -57,7 +60,8 @@ export const productsMock = [
     title: 'Fraise',
     category: 'fruits',
     tag: 'bio',
-    isFavorite: false, isInCart: false,
+    isFavorite: true,
+    isInCart: false,
     imageLink:'http://recueil-de-png.r.e.pic.centerblog.net/5bfbd050.png',
     quantity: 1,
     priceList: [{
@@ -74,7 +78,8 @@ export const productsMock = [
     title: 'Orange',
     category: 'fruits',
     tag: 'bio',
-    isFavorite: false, isInCart: false,
+    isFavorite: true,
+    isInCart: false,
     imageLink:'http://pngimg.com/uploads/orange/orange_PNG780.png',
     quantity: 1,
     priceList: [{
@@ -91,7 +96,8 @@ export const productsMock = [
     title: 'kiwi',
     category: 'fruits',
     tag: 'bio',
-    isFavorite: false, isInCart: false,
+    isFavorite: true,
+    isInCart: false,
     imageLink:'http://pngimg.com/uploads/kiwi/kiwi_PNG4035.png',
     quantity: 1,
     priceList: [{
@@ -108,7 +114,8 @@ export const productsMock = [
     title: 'poire',
     category: 'fruits',
     tag: 'bio',
-    isFavorite: false, isInCart: false,
+    isFavorite: false,
+    isInCart: false,
     imageLink:'http://recueil-de-png.r.e.pic.centerblog.net/4e0842ca.png',
     quantity: 1,
     priceList: [{
@@ -125,7 +132,8 @@ export const productsMock = [
     title: 'melon',
     category: 'fruits',
     tag: 'bio',
-    isFavorite: false, isInCart: false,
+    isFavorite: false,
+    isInCart: false,
     imageLink:'https://toppng.com/public/uploads/preview/melon-11528323277edmrpxgtjg.png',
     quantity: 1,
     priceList: [{
@@ -142,7 +150,8 @@ export const productsMock = [
     title: 'pastec',
     category: 'fruits',
     tag: 'bio',
-    isFavorite: false, isInCart: false,
+    isFavorite: false,
+    isInCart: false,
     imageLink:'https://www.togotopinfos.com/wp-content/uploads/2017/05/pasteque-mini.jpg',
     quantity: 1,
     priceList: [{
@@ -159,7 +168,8 @@ export const productsMock = [
     title: 'raisin',
     category: 'fruits',
     tag: 'bio',
-    isFavorite: false, isInCart: false,
+    isFavorite: true,
+    isInCart: false,
     imageLink:'https://img1.topsante.com/var/topsante/storage/images/nutrition-et-recettes/la-sante-par-les-aliments/les-bons-aliments/tonus-et-energie-mangez-du-raisin/86968-2-fre-FR/Tonus-et-energie-mangez-du-raisin_exact1024x768_l.jpg',
     quantity: 1,
     priceList: [{
@@ -176,7 +186,8 @@ export const productsMock = [
     title: 'raisin',
     category: 'fruits',
     tag: 'bio',
-    isFavorite: false, isInCart: false,
+    isFavorite: true,
+    isInCart: false,
     imageLink:'https://columbiabarnardhillel.org/wp-content/uploads/2014/12/467471-pomegranate.jpg',
     quantity: 1,
     priceList: [{
@@ -193,7 +204,8 @@ export const productsMock = [
     title: 'mongo',
     category: 'fruits',
     tag: 'bio',
-    isFavorite: false, isInCart: false,
+    isFavorite: true,
+    isInCart: false,
     imageLink:'https://www.clipartmax.com/png/middle/301-3013689_fruits-mango.png',
     quantity: 1,
     priceList: [{
@@ -211,7 +223,8 @@ export const productsMock = [
     title: 'viande de veau',
     category: 'viandes ',
     tag: 'eco',
-    isFavorite: false, isInCart: false,
+    isFavorite: true,
+    isInCart: false,
     imageLink:'http://www.boucherie-du-printemps.com/images/veau.png',
     quantity: 1,
     priceList: [{
@@ -284,7 +297,8 @@ export const productsMock = [
     title: 'viande agneaux ',
     category: 'viandes',
     tag: 'eco',
-    isFavorite: false, isInCart: false,
+    isFavorite: false,
+    isInCart: false,
     imageLink:'http://www.fraisviandes.fr/cms/800Fotolia_58631198_S.jpg',
     quantity: 1,
     priceList: [{
