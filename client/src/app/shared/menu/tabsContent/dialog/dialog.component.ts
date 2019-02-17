@@ -13,7 +13,6 @@ export class DialogComponent implements OnInit {
 
   @Output() public productCartChanged: EventEmitter<any> = new EventEmitter();
 
-
   constructor(public dialogRef: MatDialogRef<DialogComponent> , @Inject(MAT_DIALOG_DATA) public data, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
@@ -29,7 +28,6 @@ export class DialogComponent implements OnInit {
     product.isInCart = false;
     this.productCartChanged.emit();
   }
-
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
