@@ -1,5 +1,25 @@
 <!-- The chart type goes in here -->
 <div class="wrapper">
+  <div>
+    <mat-expansion-panel *ngFor="let stat of stats">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Client: {{stat.id}}
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <li>
+        <ul>Gain maximum de tous les commercant : {{stat.maximumGainOfAllTraders}}</ul>
+        <ul>Gain minimum de tous les commercant: {{stat.minimumGainOfAllTraders}}</ul>
+        <ul>Gain moyen de tous les commercant: {{stat.meanGainOfAllTranders}}</ul>
+        <ul>Nombre des commercant identifiés: {{stat.numberOfTraderIdendified}}</ul>
+      </li>
+
+    </mat-expansion-panel>
+
+  </div>
 <div FxLayout="row" class="statistic-section">
   <div>
 <div> <b>Variation de nombre des clients par marché chaque année</b></div>

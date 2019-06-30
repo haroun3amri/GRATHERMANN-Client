@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {collectedInfoMock} from "../fake-api/collected-info-fake";
+import {statsMock} from "../fake-api/state-fake";
 
 @Component({
   selector: 'app-statistics',
@@ -7,37 +9,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatisticsComponent  {
 
+  public stats = statsMock;
+
   // data goes here
   public single = [
     {
-      "name": "Lidle",
+      "name": "Commercant 1",
       "value": 1940000
     },
     {
-      "name": "Carrefour",
+      "name": "Commercant 2",
       "value": 3000000
     },
     {
-      "name": "Util",
+      "name": "Commercant 3",
       "value": 6200000
     },
     {
-      "name": "Spar",
+      "name": "Commercant 4",
       "value": 8700000
     },
     {
-      "name": "Monoprix",
+      "name": "Commercant 5",
       "value": 5700000
     },
     {
-      "name": "Casino",
+      "name": "Commercant 6",
       "value": 3200000
     }
   ];
 
   public multi = [
     {
-      "name": "Lidle",
+      "name": "Commercant 1",
       "series": [
         {
           "name": "2010",
@@ -51,7 +55,7 @@ export class StatisticsComponent  {
     },
 
     {
-      "name": "Carrefour",
+      "name": "Commercant 2",
       "series": [
         {
           "name": "2010",
@@ -65,7 +69,7 @@ export class StatisticsComponent  {
     },
 
     {
-      "name": "Util",
+      "name": "Commercant 3",
       "series": [
         {
           "name": "2010",
@@ -78,7 +82,7 @@ export class StatisticsComponent  {
       ]
     },
     {
-      "name": "Spar",
+      "name": "Commercant 4",
       "series": [
         {
           "name": "2010",
@@ -91,7 +95,7 @@ export class StatisticsComponent  {
       ]
     },
     {
-      "name": "Monoprix",
+      "name": "Commercant 5",
       "series": [
         {
           "name": "2010",
@@ -104,7 +108,7 @@ export class StatisticsComponent  {
       ]
     },
     {
-      "name": "Casino",
+      "name": "Commercant 6",
       "series": [
         {
           "name": "2010",

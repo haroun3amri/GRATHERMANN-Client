@@ -1,14 +1,14 @@
 <mat-toolbar color="primary">
 
-    <a [routerLink]="['/']" class="logo"></a>
+  <a [routerLink]="['/']"><strong style="color: white">GRATHERMANN</strong></a>
 
     <!-- This fills the remaining space of the current row -->
   <span class="fill-remaining-space"></span>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
     <button mat-button routerLink="/propos"><mat-icon>add_alert</mat-icon>A propos</button>
-    <button mat-button routerLink="/portal"><mat-icon>view_module</mat-icon>Portail marché</button>
-    <button mat-button routerLink="/statistics"><mat-icon>bar_chart</mat-icon>Statistiques</button>
-    <button mat-button routerLink="/command"><mat-icon>add_shopping_cart</mat-icon>Passer votre commander</button>
+    <button mat-button routerLink="/trader"><mat-icon>view_module</mat-icon>GATHERMAN</button>
+    <button mat-button routerLink="/statistics"><mat-icon>bar_chart</mat-icon>VIEWSTATS</button>
+    <button mat-button routerLink="/admin"><mat-icon>build</mat-icon>Administration</button>
     <button mat-button routerLink="/profile"><mat-icon>account_circle</mat-icon>Votre profile</button>
   </div>
   <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>

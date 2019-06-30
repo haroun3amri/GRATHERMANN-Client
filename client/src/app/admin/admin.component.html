@@ -1,0 +1,20 @@
+<div fxLayout="row" fxFlexAlign="space-between center">
+  <div>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let info of collectedInformation" matRipple onclick="chargeDetails(info)">
+        {{info.firstName}} {{info.lastName}}
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+
+  <div id="details">
+    <mat-list role="list">
+      <mat-list-item role="listitem"></mat-list-item>
+      <mat-list-item role="listitem">Item 2</mat-list-item>
+      <mat-list-item role="listitem">Item 3</mat-list-item>
+    </mat-list>
+
+  </div>
+
+</div>

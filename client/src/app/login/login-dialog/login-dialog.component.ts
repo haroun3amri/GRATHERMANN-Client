@@ -1,9 +1,6 @@
 import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
-import {Product} from "../../Models/product";
 import {Router} from '@angular/router';
-import {CommandTabsComponent} from "../../shared/command-tabs/command-tabs.component";
-
 
 @Component({
   selector: 'app-login-dialog',

@@ -1,0 +1,98 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="wrapper" fxFlex="100">
+
+  <div fxLayout="row" fxLayoutAlign="space-around center" style="display: inline-flex;">
+    <div style="margin-right: 350px ">
+      <mat-button-toggle-group name="fontStyle" aria-label="Font Style" fxLayoutAlign="center">
+        <mat-button-toggle value="bold">
+          <mat-icon>view_module</mat-icon>
+          Tous les commerçants
+        </mat-button-toggle>
+        <mat-button-toggle value="bold">
+          <mat-icon>euro_symbol</mat-icon>
+          les plus gagants
+        </mat-button-toggle>
+        <mat-button-toggle value="underline">
+          <mat-icon>star_rate</mat-icon>
+          Favoris
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+
+    <div style="margin-right: 350px " style="display: inline-flex">
+      <form class="form-field" [formGroup]="form">
+        <mat-form-field appearance="outline">
+          <mat-label>Rechercher</mat-label>
+          <input matInput placeholder="Placeholder" formControlName="controle1">
+          <mat-hint>Rechercher un commercant</mat-hint>
+        </mat-form-field>
+      </form>
+      <button mat-icon-button (click)="searchTrader()">
+        <mat-icon aria-label="Example icon-button with a heart icon">youtube_searched_for</mat-icon>
+      </button>
+    </div>
+
+
+    <div *ngIf="traders.length !== 0" style="margin-left: 50px " fxLayout="column"
+         fxLayoutAlign="space-around center">
+      <button mat-flat-button color="primary" style="width: 100%"
+              (click)="openDialog()">Afficher les statistiques
+        <mat-icon>local_grocery_store</mat-icon>
+      </button>
+
+      <button mat-flat-button style="width: 100%; background-color: lightgreen ; margin-top: 4px"
+              (click)="goToDeliverryMode()">Valider la liste
+        <mat-icon>check_circle
+        </mat-icon>
+      </button>
+    </div>
+
+  </div>
+
+
+  <div fxLayout="row" style="display: inline-flex">
+    <div>
+      <div *ngFor="let i of rows " fxLayout="row" class="cards">
+        <div fxFlex="20" class="example-card"
+             *ngFor="let trader of traders | slice:(i*ElementNumber):(i+1)*ElementNumber"
+             Style="border-style: dot-dash ; display: inline-flex ; height: 100%"
+             [style.width.%]="80/ElementNumber"
+        >
+          <mat-card [class.mat-elevation-z8]="true">
+            <mat-card-header>
+              <mat-card-title>{{trader.firstName}} {{trader.lastName}}</mat-card-title>
+
+              <mat-card-subtitle>
+                <span>{{trader.dailyGain}}</span>
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <img src='{{trader.imageURI}}' class="card-image" alt="Photo of a Shiba Inu">
+            </mat-card-content>
+            <mat-card-actions>
+
+              <div style="display: inline-flex ; width: 100%">
+                <button mat-button (click)="showInfomationsDetails(trader)">
+                  <mat-icon matTooltip="Details" style="color: red">swap_vert</mat-icon>
+                </button>
+
+                <button mat-button (click)="editTraderInformations(trader)">
+                  <mat-icon matTooltip="Editer" style="color: blue">edit</mat-icon>
+                </button>
+              </div>
+
+            </mat-card-actions>
+          </mat-card>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <button mat-fab class="mat-accent-bg compose-dialog-button" id="add-trader-button"
+          (click)="openAddCollectedInformationDialog()"
+          title="Nouveau information collectée">
+    <mat-icon>add</mat-icon>
+  </button>
+
+
+</div>

@@ -17,13 +17,8 @@ import {
 import {MatIconModule} from "@angular/material";
 import {MatToolbarModule} from "@angular/material";
 import {MatButtonModule} from "@angular/material";
-import { CommandTabsComponent } from './command-tabs/command-tabs.component';
 import {MatTabsModule} from "@angular/material";
-import { CategoryComponent } from './menu/tabsContent/category/category.component';
-import { ProductComponent } from './menu/tabsContent/product/product.component';
-import { DriverComponent } from './menu/tabsContent/driver/driver.component';
-import { ChoiceComponent } from './menu/tabsContent/choice/choice.component';
-import { PaiementComponent } from './menu/tabsContent/paiement/paiement.component';
+import { CategoryComponent } from '../category/category.component';
 import {MatCardModule} from "@angular/material";
 import {MatGridListModule} from "@angular/material";
 import {MatStepperModule} from "@angular/material";
@@ -35,28 +30,16 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule, Routes} from "@angular/router";
 import {StatisticsComponent} from "../statistics/statistics.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { ComparatorComponent } from './menu/tabsContent/product/comparator/comparator.component';
-import { DialogComponent } from './menu/tabsContent/dialog/dialog.component';
 
 
 const appRoutes: Routes = [
   { path: 'statistics',   component: StatisticsComponent },
-  { path: 'command' , component: CommandTabsComponent }
-
 ];
 
 
 @NgModule({
   declarations: [MenuComponent,
-    CommandTabsComponent,
     CategoryComponent,
-    ProductComponent,
-    DriverComponent,
-    ChoiceComponent,
-    PaiementComponent,
-    ComparatorComponent,
-    DialogComponent,
-
   ],
   imports: [
     RouterModule.forRoot(
@@ -89,9 +72,6 @@ const appRoutes: Routes = [
   ],
   exports: [
     MenuComponent,
-  ],
-  entryComponents: [
-   DialogComponent
   ],
 })
 export class SharedModule { }

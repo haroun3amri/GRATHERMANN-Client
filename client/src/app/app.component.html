@@ -1,52 +1,7 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div>
   <app-menu></app-menu>
 </div>
 
-<div class="sidebar">
-  <p>
-    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" fxLayoutAlign="center">
-      <mat-button-toggle value="bold" (click)="filterAccordingtoPrice()"><mat-icon>euro_symbol</mat-icon>Promotion</mat-button-toggle>
-      <mat-button-toggle value="italic" (click)="filterAccordingtoDate()"><mat-icon>date_range</mat-icon>Date</mat-button-toggle>
-      <mat-button-toggle value="underline" (click)="filterAccordingtoFavorite()" ><mat-icon>star_rate</mat-icon>Avis</mat-button-toggle>
-    </mat-button-toggle-group>
-  </p>
-
-  <mat-accordion>
-
-    <mat-expansion-panel *ngFor="let promotion of promotions ">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <div fxLayout="row">
-          <mat-icon [ngClass] ="promotion.isNew ? 'active-promotion-icon' : 'unactive-promotion-icon'" >star_rate</mat-icon>
-            <div fxLayout="column">
-              <div>
-          {{promotion.title}}
-              </div>
-              <div>
-          {{promotion.date}}
-              </div>
-            </div>
-          </div>
-        </mat-panel-title>
-        <mat-panel-description>
-          <div fxLayout="column">
-          {{promotion.magazin}}
-            <span class="percent-span">{{promotion.percent}}%</span>
-          </div>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      {{promotion.content}}
-      <button mat-icon-button>
-        <mat-icon aria-label="Example icon-button with a heart icon" (click)="openDialog(promotion)">open_in_browser</mat-icon>
-      </button>
-
-    </mat-expansion-panel>
-
-  </mat-accordion>
-
-
-</div>
 <div class="content">
   <router-outlet></router-outlet>
 </div>

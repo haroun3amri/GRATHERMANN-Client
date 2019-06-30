@@ -1,0 +1,103 @@
+<div class="dialog-content-container">
+  <mat-toolbar matDialogTitle class="mat-accent m-0">
+    <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+      <span class="title dialog-title">Ajouter une information du client </span>
+      <button mat-button class="mat-icon-button"
+              (click)="dialogRef.close()"
+              aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <div mat-dialog-content class="p-24 m-0" fusePerfectScrollbar>
+
+    <form fxLayout="column" fxLayoutAlign="start"
+          fxLayoutGap="10px" name="form" [formGroup]="form">
+      <div fxLayout="row" fxLayoutGap="10px">
+        <div fxFlex="100%">
+          <div fxLayout="column" fxLayoutGap="12px">
+
+            <div fxLayout="row" fxLayoutGap="3em">
+              <mat-form-field appearance="outline">
+                <input matInput placeholder="Nom" formControlName="firstname" required
+                       minlength="2" maxlength="12">
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field  appearance="outline">
+                <input matInput placeholder="Prénom" formControlName="lastname"
+                       required>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field  appearance="outline">
+                <input matInput placeholder="Numéro du téléphone" formControlName="phoneNumber"
+                       required>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field  appearance="outline">
+                <input matInput placeholder="Email 1" formControlName="email1"
+                       required>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field  appearance="outline">
+                <input matInput placeholder="Email 2" formControlName="email2"
+                       required>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field appearance="outline">
+                <input matInput placeholder="chiffre d’affaire estimé par jour" formControlName="turnover"
+                       required>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field appearance="outline">
+                <input matInput placeholder="nombre de jours travaillé par semaine" formControlName="numberOfWorkedDaysPerWeeks"
+                       required>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field appearance="outline">
+                <input matInput placeholder="nombre de jour de vacances pris par an" formControlName="numberOfFreeDayPerYear"
+                       required>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+  <div mat-dialog-actions class="m-0 p-16" fxLayout="row" fxLayoutAlign="space-between center">
+    <div>
+
+      <button mat-raised-button
+              (click)="onSubmit()"
+              class="save-button mat-accent"
+              aria-label="SAVE">
+        Créer
+      </button>
+
+
+      <button mat-button
+              (click)="onClose()"
+              class="save-button mat-accent"
+              aria-label="CLOSE">
+        Annuler
+      </button>
+
+    </div>
+  </div>
+</div>

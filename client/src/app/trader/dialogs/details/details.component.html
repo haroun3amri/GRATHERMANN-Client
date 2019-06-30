@@ -1,0 +1,42 @@
+<div class="dialog-content-container">
+  <mat-toolbar matDialogTitle class="mat-accent m-0">
+    <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+      <span class="title dialog-title">Information collecté</span>
+      <button mat-button class="mat-icon-button"
+              (click)="dialogRef.close()"
+              aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <div mat-dialog-content class="p-24 m-0" fusePerfectScrollbar>
+
+    <mat-expansion-panel *ngFor="let info of collectedInfomations">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Client: {{info.lastName}} {{info.firstName}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{info.email1}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <li>
+        <ul>Nom : {{info.firstName}}</ul>
+        <ul>Prénom: {{info.lastName}}</ul>
+        <ul>Email1: {{info.email1}}</ul>
+        <ul>Email2: {{info.email2}}</ul>
+        <ul>Téléphone: {{info.phoneNumber}}</ul>
+        <ul>Chiffre d'affaire: {{info.turnover}}</ul>
+        <ul>Nbre de jours travaillés / semaines: {{info.numberOfWorkedDaysPerWeeks}}</ul>
+        <ul>Nbre de jours non travaillée/ans: {{info.numberOfFreeDayPerYear}}</ul>
+      </li>
+
+    </mat-expansion-panel>
+
+
+
+  </div>
+
+</div>

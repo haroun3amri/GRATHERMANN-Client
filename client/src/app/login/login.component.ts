@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {User} from "../Models/user";
-import {usersMock} from "../fake-api/users-mock";
+import {usersMock} from "../fake-api/users-fake";
 import {MatDialog} from "@angular/material";
 import {LoginDialogComponent} from "./login-dialog/login-dialog.component";
 
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   users = usersMock;
   showError: boolean = false;
   loginIsValid: boolean =false;
-  coonectedUser: User;
+  connectedUser: User;
 
   constructor(private fileLoader: FormBuilder , public dialog: MatDialog) { }
 
@@ -39,13 +39,13 @@ export class LoginComponent implements OnInit {
   public login() {
     for (let user of this.users) {
       console.log(this.form.controls.controle1.value);
-      if (user.userName === this.form.controls.controle1.value && user.Password === this.form.controls.controle2.value) {
+      if (user.name === this.form.controls.controle1.value && user.email === this.form.controls.controle2.value) {
         this.loginIsValid = true;
-        this.coonectedUser = user;
+        this.connectedUser = user;
       }
     }
     if(this.loginIsValid) {
-      this.openDialog(this.coonectedUser);
+      this.openDialog(this.connectedUser);
     }
     else {
       this.showError = true;
