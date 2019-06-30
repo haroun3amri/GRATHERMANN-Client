@@ -1,5 +1,5 @@
 export interface ITrader {
-  id: number;
+  id: string;
   imageURI: string;
   firstName: string;
   lastName: string;
@@ -7,7 +7,7 @@ export interface ITrader {
 }
 
 export class Trader {
-  id: number;
+  id: string;
   imageURI: string;
   firstName: string;
   lastName: string;
